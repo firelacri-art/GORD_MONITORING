@@ -4,7 +4,7 @@ search_media.py — поиск публикаций по инфоповоду б
 
 Источники (включаются автоматически, если доступны):
   • Google News RSS      — без ключей, всегда; фильтр по дате «за N дней».
-  • DuckDuckGo (html)    — без ключей; индекс Bing, фильтр по дате день/неделя/месяц/год.
+  • DuckDuckGo (html)    — без ключей; при частых запросах DDG временно блокирует (пропускается).
   • Google Custom Search — если заданы GOOGLE_CSE_KEY и GOOGLE_CSE_CX (100 запросов/день бесплатно).
   • Yandex Search API    — если заданы YANDEX_SEARCH_API_KEY и YANDEX_SEARCH_FOLDER_ID (Yandex Cloud).
   • Telegram watchlist   — публичные превью t.me/s/<канал> для каналов из project.json, без ключей.
@@ -12,7 +12,7 @@ search_media.py — поиск публикаций по инфоповоду б
 Новые ссылки складываются в candidates.json проекта (дубли и уже учтённые отсекаются
 по seen.json). Дальше кандидатов разбирает Claude: fetch_page.py → add_entry.py.
 
-    python3 search_media.py <slug|project.json> [--days 30] [--sources news,cse,yandex,tg] [--dry-run]
+    python3 search_media.py <slug|project.json> [--days 30] [--sources news,ddg,cse,yandex,tg] [--dry-run]
 
 Переменные окружения читаются также из ~/.gord-monitoring/.env (KEY=VALUE построчно).
 """
@@ -132,6 +132,9 @@ def duckduckgo(query: str, days: int) -> list[dict]:
         page = http_get(url).decode("utf-8", "ignore")
     except Exception as e:  # noqa: BLE001
         print(f"  ! DuckDuckGo: {e}", file=sys.stderr)
+        return out
+    if "anomaly-modal" in page or "result__a" not in page and "no-results" not in page:
+        print("  ! DuckDuckGo временно блокирует автоматические запросы (anomaly) — источник пропущен, попробуй позже или добавь ключи Google CSE / Yandex", file=sys.stderr)
         return out
     for m in re.finditer(r'<a rel="nofollow" class="result__a" href="([^"]+)"[^>]*>(.*?)</a>.*?<a class="result__snippet"[^>]*>(.*?)</a>', page, re.S):
         href = html.unescape(m.group(1))
