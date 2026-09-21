@@ -1,0 +1,13 @@
+{
+  "project": "Novikov: аукцион Yoomoota",
+  "slug": "yoomoota",
+  "queries": ["аукцион Yoomoota", "Yoomoota Novikov", "Yoomoota"],
+  "keywords": ["yoomoota", "юмута"],
+  "days": 30,
+  "exclude_domains": ["yoomoota.com", "gordpr.ru"],
+  "telegram_watchlist": ["novikovgroup", "oimaskva", "stoli_shtuchka"],
+  "instagram_watchlist": ["novikov_moscow", "yoomoota"],
+  "tiktok_queries": ["Yoomoota"],
+  "brand_accounts": {"instagram": "yoomoota", "telegram": "yoomoota"},
+  "sheet_url": "https://docs.google.com/spreadsheets/d/…/edit"
+}

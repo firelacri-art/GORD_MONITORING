@@ -1,0 +1,17 @@
+{
+  "name": "gord-monitoring",
+  "owner": { "name": "firelacri-art" },
+  "plugins": [
+    {
+      "name": "gord-monitoring",
+      "source": "./",
+      "displayName": "GORD Monitoring",
+      "description": "Мониторинг публикаций (СМИ, Telegram, Instagram, TikTok) с таблицей в стиле GORD Agency.",
+      "version": "1.0.0",
+      "author": { "name": "firelacri-art" },
+      "homepage": "https://github.com/firelacri-art/GORD_MONITORING",
+      "license": "MIT",
+      "keywords": ["pr", "media-monitoring", "gord"]
+    }
+  ]
+}

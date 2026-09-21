@@ -1,0 +1,91 @@
+channel,key,name,ave,ots,formats_seen
+инст,oksi_sole,oksi_sole,100000,517000,рилс; сторис
+инст,554th,554th,60000,212000,рилс; сторис
+инст,ma_ksyuuu,ma_ksyuuu,50000,198000,рилс; сторис
+инст,q.fwq,q.fwq,30000,160000,рилс; сторис
+инст,libloen,libloen,50000,91100,пост; рилс; сторис
+инст,pisonyaa,pisonya,95000,88700,сторис
+инст,arihiillss,arihiillss,40000,86700,сторис
+инст,slushaipolu,slushaipolu,25000,60500,рилс; сторис
+инст,katya.chi,katya.chi,50000,57000,пост; сторис
+инст,dom.kultur,dom.kultur,10000,55600,пост; рилс; сторис
+инст,ritasukhareva,ritasukhareva,50000,54900,рилс; сторис
+инст,taisinkaa,taisinkaa,35000,31000,пост; сторис
+инст,itsmesaglara,itsmesaglara,20000,29700,рилс; сторис
+инст,aribrus,aribrus,20000,28100,рилс; сторис
+инст,rul.bomond,rul.bomond,70000,23800,сторис
+инст,ivanka.go,ivanka.go,20000,21400,рилс; рилс (с упоминанием в описании); сторис
+инст,veta.savva,veta.savva,30000,21000,пост; сторис
+инст,innazaitsevaa,innazaitsevaa,15000,12200,пост; рилс; сторис
+инст,lapshhh,lapshhh,10000,5243,рилс; сторис
+инст,sofia.molz,sofia.molz,6000,4004,сторис
+инст,anyacopusha,anyacopusha,5000,3600,пост; рилс; сторис
+инст,rosa_robertovna,rosa_robertovna,5000,3564,сторис (журналист peopletalk)
+инст,kira_the_editor,kira_the_editor,3000,2019,сторис (журналист peopletalk)
+инст,anastasiaosidach,anastasiaosidach,3000,1422,сторис (журналист peopletalk)
+инст,tigrankurakin,tigrankurakin,1500,836,сторис (журналист peopletalk)
+инст,mar_llgg,mar_llgg,5000,800,рилс
+инст,allcanape_catering,allcanape_catering,,584,пост
+инст,angbezi,angbezi,1000,246,сторис (журналист peopletalk)
+сми,lenta.ru,lenta.ru,300000,230900000,экспертный материал
+сми,travel.yandex.ru,Яндекс Путешествия PRO,350000,132100000,упоминание; экспертный материал
+сми,gazeta.ru,gazeta.ru,150000,110300000,экспертная статья; экспертный материал
+сми,finance.mail.ru,finance.mail.ru,180000,70800000,экспертная статья
+сми,lady.mail.ru,lady.mail.ru,120000,70100000,упоминание
+сми,tsargrad.tv,tsargrad.tv,120000,45500000,экспертный материал
+сми,life.ru,life.ru,190000,31400000,экспертная статья
+сми,peterburg2.ru,peterburg2.ru,100000,19000000,упоминание
+сми,pravda.ru,pravda.ru,130000,13200000,экспертный материал
+сми,woman.rambler.ru,woman.rambler.ru,200000,6800000,подборка; экспертный материал
+сми,peopletalk.ru,peopletalk.ru,300000,4000000,дайджест; экспертный материал
+сми,osnmedia.ru,osnmedia.ru,100000,3800000,экспертная статья
+сми,78.ru,78.ru,200000,3700000,экспертный материал
+сми,regions.ru,regions.ru,130000,2700000,экспертная статья; экспертный материал
+сми,snob.ru,Сноб,300000,2200000,дайджест
+сми,parents.ru,parents.ru,150000,1700000,дайджест; новость; экспертный материал
+сми,360.ru,360.ru,130000,1700000,экспертный материал
+сми,travel.rambler.ru,travel.rambler,200000,1400000,экспертный материал
+сми,mosregtoday.ru,mosregtoday,100000,1200000,экспертный материал
+сми,buro247.ru,buro247,350000,1000000,моно-статья; подборка
+сми,infox.ru,infox,80000,869000,экспертный материал
+сми,dzen.ru,dzen,200000,866600,экспертный материал
+сми,the-day.ru,the-day,200000,300000,моно-статья
+сми,ok.ru,ok.ru,20000,87500,экспертный материал
+сми,voyagemagazine.ru,voyagemagazine,35000,80000,новость
+сми,ura.news,ura.news,20000,35300,экспертный материал
+сми,new-magazine.ru,new-magazine.ru,35000,35000,подборка
+сми,mm-g.ru,mm-g.ru,20000,26000,моно-статья; новость
+сми,beicon.ru,beicon.ru,30000,24000,дайджест
+сми,therussiannews.ru,therussiannews,30000,20400,экспертный материал
+сми,nownownow.ru,nownownow,35000,20000,дайджест
+сми,divo-magazine.ru,DIVO,40000,20000,моно-статья
+сми,ubazaar.ru,ubazaar.ru,40000,15000,моно-статья; новость
+сми,tourismexpo.ru,tourismexpo,15000,11200,упоминание
+сми,fazanmag.com,FAZAN,30000,7300,новость
+сми,yut-pol.ru,yut-pol,,3200,упоминание
+сми,velsknews.ru,velsknews,4000,2000,экспертный материал
+сми,terravia.ru,terravia,3000,1000,экспертный материал
+сми,ecoruspace.ru,ecoruspace.ru,2000,240,экспертный материал
+тг,oimaskva,"Ой, Москва",20000,7700,конкурс; пост
+тг,Anya_abouteverything,Anya •обо всем•,25000,7000,пост
+тг,ari713hills,"Ари, которая Хиллс",20000,5000,пост
+тг,ryzhiick,rizhick,20000,3700,пост
+тг,sdavajsya,Сдавайся на суточно.ру,,3530,пост
+тг,sofia_molz,SOFIA 💌,20000,3400,пост
+тг,youarethemuse,«музей» от слова «муза» | alya libloen,20000,3400,пост
+тг,nikolskaya_life,Nikolskaya,20000,3200,пост
+тг,broilinhades,Yuliya Melkumyan🥂,20000,3000,пост
+тг,itsmesaglara_pro,tsmesaglara,10000,2600,пост
+тг,newmagazineru,New-Magazine,20000,2500,пост
+тг,taisinka,вишенка,15000,2300,пост
+тг,stoli_shtuchka,Столичная штучка,12000,2200,конкурс; пост
+тг,mar_llgg,маргошшка,8000,1600,пост
+тг,yandex_travel_pro,Яндекс PRO Путешествия,15000,1600,пост
+тг,maksyuuuu,Maksyuuu,15000,1500,пост
+тг,qfwqq,q.fwq,8000,1100,пост
+тг,laprelest,Ля какая прелесть,10000,1000,пост
+тг,albinalands,ALBINALAND,10000,874,пост
+тг,contentandthecity,контент в большом городе,7000,556,пост
+тг,Victoriaandhersecrets,Нет Moet,,100,пост
+тикток,katya.og2000,katya.og2000,70000,47400,пост
+тикток,zosssya,zosssya,20000,5903,пост

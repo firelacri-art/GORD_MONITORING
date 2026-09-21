@@ -1,0 +1,11 @@
+{
+  "name": "gord-monitoring",
+  "displayName": "GORD Monitoring",
+  "description": "Мониторинг публикаций об инфоповоде для PR-агентства GORD: СМИ (Google/Яндекс/Google News/DuckDuckGo), Telegram, Instagram и TikTok через браузер пользователя; формат, AVE/OTS из справочника, лист «Мониторинг публикаций» в стиле GORD.",
+  "version": "1.0.0",
+  "author": { "name": "firelacri-art" },
+  "homepage": "https://github.com/firelacri-art/GORD_MONITORING",
+  "repository": "https://github.com/firelacri-art/GORD_MONITORING",
+  "license": "MIT",
+  "keywords": ["pr", "media-monitoring", "telegram", "instagram", "tiktok", "gord", "excel", "google-sheets"]
+}
