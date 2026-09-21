@@ -38,7 +38,7 @@ GORD** (xlsx + CSV для Google-таблицы). Заменяет ручной 
 
 | Канал | Как | Что нужно |
 | --- | --- | --- |
-| СМИ | Google News RSS + DuckDuckGo сразу; Google Custom Search и Yandex Search API при наличии ключей | ключи по желанию, инструкция в [search-apis.md](skills/gord-monitoring/references/search-apis.md) |
+| СМИ | **Google и Яндекс через Chrome пользователя** с фильтром по дате (как менеджер руками, но по URL и одним JS-снимком выдачи) + Google News RSS и DuckDuckGo скриптом; Google CSE / Yandex API — если ключи появятся | Chrome с расширением «Claude in Chrome»; ключи не нужны — [browser-search.md](skills/gord-monitoring/references/browser-search.md) |
 | Telegram-каналы из списка наблюдения | публичные превью `t.me/s/канал`: текст, дата, просмотры | ничего |
 | Telegram глобальный поиск | Telegram Web в браузере пользователя (вкладка «Публикации» при Premium) или TGStat | залогиненный браузер, Premium или TGStat |
 | Instagram | отметки бренда, профили и сторис блогеров из списка, поиск по словам и хэштегам — через браузер пользователя | залогиненный браузер (из РФ — VPN) |
@@ -65,7 +65,8 @@ Claude Code, где пользователь уже вошёл в аккаунт
 
 ```bash
 S=skills/gord-monitoring/scripts
-python3 $S/search_media.py $S/examples/yoomoota.json --days 30     # поиск → candidates.json
+python3 $S/import_candidates.py yoomoota results.json --via google-browser --days 30   # выдача из браузера → candidates.json
+python3 $S/search_media.py $S/examples/yoomoota.json --days 30     # скриптовые источники → candidates.json
 python3 $S/fetch_page.py --candidates yoomoota --limit 10           # что внутри найденных страниц
 python3 $S/add_entry.py yoomoota --url URL --format "новость" --date 2026-09-05
 python3 $S/add_entry.py yoomoota --reject URL --reason "не про нас"

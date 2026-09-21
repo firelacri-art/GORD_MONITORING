@@ -21,27 +21,49 @@ description: Мониторинг публикаций об инфоповоде
 агентства), `telegram_watchlist`, `instagram_watchlist`, `brand_accounts`, `sheet_url`.
 Спроси только то, чего нет в запросе; остальное заполни сам и покажи конфиг.
 
-### 1. Поиск без браузера (всегда)
+### 1. Поиск в Google и Яндексе через Chrome пользователя (основной способ)
+
+Ключей API у агентства нет, поэтому поиск по СМИ идёт **через настоящий Chrome
+пользователя** с расширением «Claude in Chrome» (`mcp__claude-in-chrome__*`), как это
+делает менеджер руками, но по URL с фильтром даты и снятием выдачи одним JS-вызовом.
+Точные URL, коды периодов (`tbs=qdr:m`, `within=2`) и готовые сниппеты —
+[references/browser-search.md](references/browser-search.md). На каждый запрос из
+`queries`: Google веб + Google «Новости» + Яндекс веб, бренд в кавычках. Результаты
+складываются в JSON и импортируются:
+
+```bash
+python3 ${CLAUDE_SKILL_DIR}/scripts/import_candidates.py <slug> results.json --via google-browser --query "…" --days 30
+```
+
+Встроенная панель браузера Claude Code для Google **не подходит** (сразу капча) — только
+Chrome MCP. Капча в Chrome → остановиться, скриншот пользователю, не повторять.
+Если инструментов браузера в сессии нет — сказать об этом в сводке и выполнить только
+шаг 1а.
+
+### 1а. Поиск без браузера (всегда, дополнительно)
 
 ```bash
 pip install -q openpyxl Pillow        # один раз
 python3 ${CLAUDE_SKILL_DIR}/scripts/search_media.py <slug> [--days 30]
 ```
 
-Источники подключаются сами: Google News RSS и DuckDuckGo без ключей; Google CSE и
-Яндекс, если в `~/.gord-monitoring/.env` есть ключи (как получить —
-[references/search-apis.md](references/search-apis.md)); Telegram-каналы из watchlist
-через публичные превью `t.me/s/…`. Новое попадает в `candidates.json`, уже виденное
-отсекается.
+Google News RSS и DuckDuckGo без ключей (DDG после нескольких запросов временно
+блокирует — скрипт это распознаёт и пропускает); Telegram-каналы из `telegram_watchlist`
+через публичные превью `t.me/s/…` с датой и просмотрами; Google CSE и Яндекс API — если
+ключи когда-нибудь появятся ([references/search-apis.md](references/search-apis.md)).
+Новое попадает в `candidates.json`, уже виденное отсекается.
 
-### 2. Браузерные каналы (если есть инструменты браузера и пользователь залогинен)
+### 2. Соцсети через браузер (если пользователь залогинен)
 
-Instagram (отметки бренда, watchlist блогеров, сторис, поиск), TikTok (поиск с фильтром
-по дате, watchlist), Telegram Web (вкладка «Публикации» при Premium; TGStat при
-подписке), Яндекс/Google в браузере, если нет ключей API. Процедуры и лимиты темпа —
+Instagram (отметки бренда, watchlist блогеров, сторис, поиск по словам), TikTok (поиск с
+фильтром по дате, watchlist), Telegram Web (вкладка «Публикации» при Premium; TGStat при
+подписке). Процедуры и лимиты темпа —
 [references/browser-channels.md](references/browser-channels.md). Правила: не больше
-15–25 страниц на сервис за прогон, паузы, ничего не лайкать и не писать; капча или
-просьба войти → остановиться и сообщить. Найденное вноси сразу через `add_entry.py`.
+15–25 страниц на сервис за прогон, паузы 3–6 с, ничего не лайкать и не писать; капча
+или просьба войти → остановиться и сообщить. Найденное вносить через
+`import_candidates.py --via instagram` (пачкой) или сразу `add_entry.py`, если формат
+и дата уже ясны. Для настольных приложений (Telegram Desktop) допустим computer-use по
+той же логике: глобальный поиск → список постов → ссылка через «Копировать ссылку».
 
 ### 3. Разбор кандидатов
 
@@ -94,9 +116,10 @@ Google-таблица партнёра обновляется вставкой �
 
 ## Справочные материалы
 
-- [references/search-apis.md](references/search-apis.md) — источники, ключи Google CSE и Yandex Search API, `.env`.
-- [references/browser-channels.md](references/browser-channels.md) — Instagram, Telegram Web, TikTok, Яндекс/Google через браузер.
+- [references/browser-search.md](references/browser-search.md) — Google и Яндекс через Chrome пользователя: URL с фильтром даты, JS-сниппеты, импорт результатов.
+- [references/browser-channels.md](references/browser-channels.md) — Instagram, Telegram Web, TikTok через браузер.
+- [references/search-apis.md](references/search-apis.md) — скриптовые источники и ключи Google CSE / Yandex Search API на будущее, `.env`.
 - [references/ave-ots.md](references/ave-ots.md) — форматы публикаций, справочник AVE/OTS, что делать с неизвестной площадкой.
 - [references/scheduling.md](references/scheduling.md) — команда, планировщик, облачные routines, выгрузка в Google-таблицу.
-- `scripts/`: `search_media.py`, `fetch_page.py`, `add_entry.py`, `build_monitoring_sheet.py`, `monitoring_lib.py`; пример проекта `examples/yoomoota.json`.
+- `scripts/`: `import_candidates.py` (результаты из браузера → очередь), `search_media.py`, `fetch_page.py`, `add_entry.py`, `build_monitoring_sheet.py`, `monitoring_lib.py`; пример проекта `examples/yoomoota.json`.
 - `assets/media-reference.csv` — стартовый справочник площадок (≈90 записей из мониторингов агентства); `assets/gord-logo.png`.
